@@ -96,9 +96,9 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="match_parent"입
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="회원가"
+        android:text="회원가입"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
