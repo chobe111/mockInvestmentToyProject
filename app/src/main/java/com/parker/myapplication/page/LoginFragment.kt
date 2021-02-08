@@ -16,31 +16,22 @@ import com.parker.myapplication.databinding.FragmentMainBinding
 
 
 class LoginFragment : Fragment() {
-    // TODO: Rename and change types of parameters
 
-    private lateinit var auth: FirebaseAuth
+//  TODO: 비밀번호 기반 사용자 인증 기능 구현
+//
     private lateinit var binding: FragmentLoginBinding
 
-    private fun updateUI(user: FirebaseUser?) {
-        if (user == null) {
+//  TODO:
 
-            return
-        }
-    }
 
-    override fun onStart() {
-        super.onStart()
-        val currentUser = auth.currentUser
-        updateUI(currentUser)
-    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         val view = binding.root
-        auth = Firebase.auth
         return view
     }
 

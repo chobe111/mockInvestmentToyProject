@@ -11,9 +11,14 @@ import kotlin.math.log
 
 class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent {
 
-    private lateinit var binding: ActivityMainBinding
+//    private lateinit var binding: ActivityMainBinding
+
+    private var _binding: ActivityMainBinding? = null
+    private val binding get() = _binding!!
+
     private val mainFragment by lazy { MainFragment() }
     private val loginFragment by lazy { LoginFragment() }
+    private val registerFragment by lazy { RegisterFragment() }
 
     private fun changeFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment)
@@ -23,10 +28,9 @@ class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        _binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-//        setContentView(R.layout.activity_main)
         changeFragment(mainFragment)
     }
 
@@ -35,6 +39,6 @@ class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent {
     }
 
     override fun onRegisterButtonClick() {
-
+        changeFragment(registerFragment)
     }
 }
