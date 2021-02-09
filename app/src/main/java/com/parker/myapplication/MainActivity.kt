@@ -9,7 +9,7 @@ import com.parker.myapplication.page.MainFragment
 import com.parker.myapplication.page.RegisterFragment
 import kotlin.math.log
 
-class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent {
+class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent, RegisterFragment.OnRegisterDoneListener {
 
     //private lateinit var binding: ActivityMainBinding
 
@@ -41,5 +41,9 @@ class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent {
 
     override fun onRegisterButtonClick() {
         changeFragment(registerFragment)
+    }
+
+    override fun OnRegisterDone() {
+        TODO("Not yet implemented")
     }
 }
