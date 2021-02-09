@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".page.LoginFragment">
+    tools:context=".page.main.LoginFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
 
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/login_fragment_login_button"
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,13 +25,13 @@
             app:layout_constraintVertical_bias="0.737" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/login_fragment_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Your ID"
-            app:layout_constraintBottom_toTopOf="@+id/button2"
+            android:hint="Id"
+            app:layout_constraintBottom_toTopOf="@+id/login_fragment_login_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,21 +39,21 @@
             app:layout_constraintVertical_bias="0.601" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/login_fragment_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword"
-            android:text="Password"
-            app:layout_constraintBottom_toTopOf="@+id/button2"
+            android:hint="password"
+            app:layout_constraintBottom_toTopOf="@+id/login_fragment_login_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+            app:layout_constraintTop_toBottomOf="@+id/login_fragment_id"
             app:layout_constraintVertical_bias="0.05" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/login_fragment_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login_button_name"
@@ -67,5 +67,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.245" />
+
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

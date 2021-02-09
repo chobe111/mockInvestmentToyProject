@@ -3,26 +3,25 @@ package com.parker.myapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.auth.FirebaseUser
 import com.parker.myapplication.databinding.ActivityMainBinding
-import com.parker.myapplication.page.LoginFragment
-import com.parker.myapplication.page.MainFragment
-import com.parker.myapplication.page.RegisterFragment
-import kotlin.math.log
+import com.parker.myapplication.page.investment.ProfileFragment
+import com.parker.myapplication.page.main.LoginFragment
+import com.parker.myapplication.page.main.MainFragment
+import com.parker.myapplication.page.main.RegisterFragment
 
-class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent, RegisterFragment.OnRegisterDoneListener {
+class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent,
+    RegisterFragment.OnRegisterDoneListener, LoginFragment.EventListener {
 
 //    private lateinit var binding: ActivityMainBinding
 
-    private lateinit var auth: FirebaseAuth
     private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
 
     private val mainFragment by lazy { MainFragment() }
     private val loginFragment by lazy { LoginFragment() }
     private val registerFragment by lazy { RegisterFragment() }
+    private val profileFragment by lazy { ProfileFragment() }
 
     private fun changeFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment)
@@ -47,6 +46,10 @@ class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent, Regis
     }
 
     override fun onRegisterDone() {
+        changeFragment(loginFragment)
+    }
 
+    override fun onLoginDone(user: FirebaseUser) {
+        changeFragment(profileFragment)
     }
 }
