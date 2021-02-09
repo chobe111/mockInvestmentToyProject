@@ -68,6 +68,19 @@ class RegisterFragment : Fragment(), View.OnClickListener {
 
     }
 
+    //  TODO: 아직 작성할 필요 없음
+    private fun reqCellPhoneAuth() {
+
+    }
+
+    private fun sendMessageToUser() {
+
+    }
+
+    private fun onCellPhoneResDone() {
+
+    }
+
     private fun createAccount(email: String, password: String) {
         showProgressBar()
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
@@ -81,8 +94,8 @@ class RegisterFragment : Fragment(), View.OnClickListener {
                 Toast.makeText(context, "Authentication failed", Toast.LENGTH_SHORT).show()
             }
         }
-
     }
+
 
     public override fun onStart() {
         super.onStart()
@@ -93,7 +106,7 @@ class RegisterFragment : Fragment(), View.OnClickListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentRegisterBinding.inflate(inflater, container, false)
         val view = binding.root
