@@ -11,7 +11,6 @@ import com.parker.myapplication.databinding.FragmentLoginBinding
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
-
 /**
  * A simple [Fragment] subclass.
  * Use the [LoginFragment.newInstance] factory method to
