@@ -1,26 +1,21 @@
-package com.parker.myapplication.page
+package com.parker.myapplication.page.main
 
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ProgressBar
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.parker.myapplication.R
-import com.parker.myapplication.databinding.FragmentLoginBinding
 import com.parker.myapplication.databinding.FragmentRegisterBinding
-import kotlin.math.sign
 
 
-class RegisterFragment : Fragment(), View.OnClickListener {
+class RegisterFragment : AuthenticationBaseFragment(), View.OnClickListener {
 
 
     private val TAG: String = "RegisterFragment"
@@ -30,7 +25,6 @@ class RegisterFragment : Fragment(), View.OnClickListener {
     private lateinit var emailView: EditText
     private lateinit var passwordView: EditText
     private lateinit var nameView: EditText
-    private lateinit var progressBar: ProgressBar
 
     private var listener: OnRegisterDoneListener? = null
 
@@ -43,19 +37,11 @@ class RegisterFragment : Fragment(), View.OnClickListener {
         emailView = binding.registerEmail
         passwordView = binding.registerPassword
         nameView = binding.registerName
-        progressBar = binding.registerProgressBar
+        setProgressBar(binding.registerProgressBar)
     }
 
-    private fun setOnClickListener() {
+    private fun setOnClickEvent() {
         signUpButton.setOnClickListener(this)
-    }
-
-    private fun showProgressBar() {
-        progressBar.visibility = View.VISIBLE;
-    }
-
-    private fun hideProgressBar() {
-        progressBar.visibility = View.INVISIBLE;
     }
 
     //  TODO: 데이터 베이스에 사용자 정보 추가.
@@ -87,8 +73,8 @@ class RegisterFragment : Fragment(), View.OnClickListener {
             hideProgressBar()
             if (task.isSuccessful) {
                 val user = firebaseAuth.currentUser
-                Toast.makeText(context, "회원가입을 환영합니다.", Toast.LENGTH_SHORT).show()
-//              TODO: UpdateUI to Investment Screen
+                Toast.makeText(context, "회원가입을 환영합니다. 다시 로그인 해주세요", Toast.LENGTH_SHORT).show()
+                listener!!.onRegisterDone()
             } else {
                 Log.d(TAG, "createUserWithEmail:failure", task.exception)
                 Toast.makeText(context, "Authentication failed", Toast.LENGTH_SHORT).show()
@@ -98,7 +84,6 @@ class RegisterFragment : Fragment(), View.OnClickListener {
 
     public override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = firebaseAuth.currentUser
     }
 
@@ -111,7 +96,7 @@ class RegisterFragment : Fragment(), View.OnClickListener {
         val view = binding.root
         firebaseAuth = Firebase.auth
         setVariables()
-        setOnClickListener()
+        setOnClickEvent()
         return view
     }
 
