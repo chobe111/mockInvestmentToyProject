@@ -17,8 +17,7 @@ import com.parker.myapplication.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
 
-    private lateinit var auth: FirebaseAuth
-    private lateinit var binding: FragmentMainBinding
+    private lateinit var  binding:FragmentMainBinding
     private lateinit var listener: OnButtonClickEvent
 
     interface OnButtonClickEvent {
@@ -35,8 +34,6 @@ class MainFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 //      현재 유저 정보 가져옴
-        val currentUser = auth.currentUser
-        updateUI(currentUser)
     }
 
     private fun setClickEvent() {
@@ -58,7 +55,6 @@ class MainFragment : Fragment() {
     ): View {
         binding = FragmentMainBinding.inflate(inflater, container, false)
         val view = binding.root
-        auth = Firebase.auth
         setClickEvent()
         return view
     }
