@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.parker.myapplication">
 
+    //allowBackup 앱 파괴시 복원 허용, 아이콘, 라벨, RTL:오른쪽에서 왼쪽 형식(아이콘이 앞으로 감) 테마설정
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,9 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MockInvestment">
+//액티비티 네임-메인액티비티
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait">//최초로 시작할때 호출하는 class(MA)
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -20,3 +23,5 @@
     </application>
 
 </manifest>
+
+//환경설정

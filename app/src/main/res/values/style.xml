@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="BaseButton">
+    <style name="BaseButton"> //버튼의 색깔 정의
         <item name="android:textColor">@color/white</item>
         <item name="android:background">@color/purple_500</item>
     </style>
 
-    <style name="LoginButton" parent="BaseButton">
+    <style name="LoginButton" parent="BaseButton"> //parent가 있으므로 글자크기만 정의
         <item name="android:textSize">24sp</item>
     </style>
 

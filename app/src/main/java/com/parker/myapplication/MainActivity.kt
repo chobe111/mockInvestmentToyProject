@@ -20,9 +20,10 @@ class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent {
             .addToBackStack(null)
             .commit()
     }
-
+//onCreate: 앱이 최로로 실행될 때 발동되는 함수 그다음이 onStart/ override private
+    //super.:부모클래스 자체를 호출한다(MainActivity)
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        super.onCreate(savedInstanceState) //현재의 UI를 일단저장해놈
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
@@ -30,11 +31,14 @@ class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent {
         changeFragment(mainFragment)
     }
 
+    //로그인 버튼 누르면 로그인프레그먼트
     override fun onLoginButtonClick() {
         changeFragment(loginFragment)
     }
 
-    override fun onRegisterButtonClick() {
+    //레지스터 버튼 누르면 레지스터프레그먼트트
+   override fun onRegisterButtonClick() {
 
     }
 }
+//프레그먼트간 전환을 실행
