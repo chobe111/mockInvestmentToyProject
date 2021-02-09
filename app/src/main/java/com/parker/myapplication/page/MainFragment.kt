@@ -17,7 +17,7 @@ import com.parker.myapplication.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
 
-    private lateinit var  binding:FragmentMainBinding
+    private lateinit var binding:FragmentMainBinding
     private lateinit var listener: OnButtonClickEvent
 
     interface OnButtonClickEvent {
