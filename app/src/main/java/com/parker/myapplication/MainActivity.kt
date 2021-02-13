@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent, Regis
             .commit()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) { //여기서 시작
+    override fun onCreate(savedInstanceState: Bundle?) { //여기서 시작암
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
