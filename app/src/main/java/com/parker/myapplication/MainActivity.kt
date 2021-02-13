@@ -9,8 +9,9 @@ import com.parker.myapplication.page.MainFragment
 import com.parker.myapplication.page.RegisterFragment
 import kotlin.math.log
 
-class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent {
+class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent, RegisterFragment.OnRegisterDoneListener {
 
+    // 2/9 RegisterFragment.OnRegisterDoneListener 이걸 추가 안해서 그동안 회원가입 버튼을 눌렀을 때 튕긴것.
     // private lateinit var binding: ActivityMainBinding
 
     private var _binding: ActivityMainBinding? = null
@@ -41,5 +42,9 @@ class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent {
 
     override fun onRegisterButtonClick() {
         changeFragment((registerFragment))
+    }
+
+    override fun onRegisterDone() {
+        TODO("Not yet implemented")
     }
 }
