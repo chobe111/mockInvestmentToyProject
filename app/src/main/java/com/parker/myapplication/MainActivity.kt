@@ -8,10 +8,12 @@ import com.parker.myapplication.databinding.ActivityMainBinding
 import com.parker.myapplication.page.investment.ProfileFragment
 import com.parker.myapplication.page.main.LoginFragment
 import com.parker.myapplication.page.main.MainFragment
-import com.parker.myapplication.page.main.RegisterFragment
+import com.parker.myapplication.page.register.RegisterFragment
+import com.parker.myapplication.page.register.VerifyFragment
 
 class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent,
-    RegisterFragment.OnRegisterDoneListener, LoginFragment.EventListener {
+    RegisterFragment.OnRegisterDoneListener, LoginFragment.EventListener,
+    VerifyFragment.EventListener{
 
 //    private lateinit var binding: ActivityMainBinding
 
@@ -22,6 +24,7 @@ class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent,
     private val loginFragment by lazy { LoginFragment() }
     private val registerFragment by lazy { RegisterFragment() }
     private val profileFragment by lazy { ProfileFragment() }
+    private val verifyFragment by lazy { VerifyFragment() }
 
     private fun changeFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment)
@@ -46,10 +49,14 @@ class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent,
     }
 
     override fun onRegisterDone() {
-        changeFragment(loginFragment)
+        changeFragment(verifyFragment)
     }
 
     override fun onLoginDone(user: FirebaseUser) {
         changeFragment(profileFragment)
+    }
+
+    override fun onVerifyDone() {
+        TODO("Not yet implemented")
     }
 }

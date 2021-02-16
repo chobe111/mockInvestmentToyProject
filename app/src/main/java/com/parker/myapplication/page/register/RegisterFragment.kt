@@ -1,4 +1,4 @@
-package com.parker.myapplication.page.main
+package com.parker.myapplication.page.register
 
 import android.content.Context
 import android.os.Bundle
@@ -9,10 +9,16 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.PhoneAuthCredential
+import com.google.firebase.auth.PhoneAuthOptions
+import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.parker.myapplication.databinding.FragmentRegisterBinding
+import com.parker.myapplication.page.main.AuthenticationBaseFragment
+import java.util.concurrent.TimeUnit
 
 
 class RegisterFragment : AuthenticationBaseFragment(), View.OnClickListener {
@@ -27,6 +33,7 @@ class RegisterFragment : AuthenticationBaseFragment(), View.OnClickListener {
     private lateinit var nameView: EditText
 
     private var listener: OnRegisterDoneListener? = null
+
 
     interface OnRegisterDoneListener {
         fun onRegisterDone()
@@ -44,28 +51,6 @@ class RegisterFragment : AuthenticationBaseFragment(), View.OnClickListener {
         signUpButton.setOnClickListener(this)
     }
 
-    //  TODO: 데이터 베이스에 사용자 정보 추가.
-    private fun addUserOnDB() {
-
-    }
-
-    //  TODO: 데이터 베이스에 사용자 정보 추가.
-    private fun onAuthSuccess() {
-
-    }
-
-    //  TODO: 아직 작성할 필요 없음
-    private fun reqCellPhoneAuth() {
-
-    }
-
-    private fun sendMessageToUser() {
-
-    }
-
-    private fun onCellPhoneResDone() {
-
-    }
 
     private fun createAccount(email: String, password: String) {
         showProgressBar()
@@ -84,7 +69,6 @@ class RegisterFragment : AuthenticationBaseFragment(), View.OnClickListener {
 
     public override fun onStart() {
         super.onStart()
-        val currentUser = firebaseAuth.currentUser
     }
 
     override fun onCreateView(
@@ -109,7 +93,7 @@ class RegisterFragment : AuthenticationBaseFragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v!!.id) {
             signUpButton.id -> {
-                createAccount(emailView.text.toString(), passwordView.text.toString())
+                listener!!.onRegisterDone()
             }
         }
     }

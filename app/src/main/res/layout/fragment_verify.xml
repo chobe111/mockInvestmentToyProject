@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:paddingStart="16dp"
     android:paddingEnd="16dp"
     tools:context=".page.register.RegisterFragment">
@@ -11,10 +12,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="1단계"
+        android:text="2단계"
+        android:textColor="@color/black"
         android:textSize="40sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,12 +29,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <LinearLayout
-            android:id="@+id/name_container"
+            android:id="@+id/phone_number_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@id/email_container"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -42,80 +45,52 @@
                 style="@style/register_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/nickname" />
+                android:text="@string/phone_number" />
 
             <EditText
-                android:id="@+id/register_name"
+                android:id="@+id/phone_number"
                 style="@style/register_input_component"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="@drawable/box_shape"
-                android:ems="10"
-                android:inputType="textPersonName" />
+                android:background="@drawable/box_shape" />
 
         </LinearLayout>
 
-
         <LinearLayout
-            android:id="@+id/email_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@id/password_container"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/name_container">
+            app:layout_constraintTop_toBottomOf="@id/phone_number_container">
 
             <TextView
                 style="@style/register_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/email" />
+                android:text="@string/authenticate_number" />
 
-            <EditText
-                android:id="@+id/register_email"
-                style="@style/register_input_component"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/box_shape"
-                android:ems="10"
-                android:inputType="textEmailAddress" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/password_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/email_container"
-            app:layout_constraintBottom_toBottomOf="parent">
-
-            <TextView
-                style="@style/register_description"
+            <LinearLayout
+                android:id="@+id/verify_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/password" />
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/register_password"
-                style="@style/register_input_component"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/box_shape"
-                android:ems="10"
-                android:inputType="numberPassword" />
+                <EditText
+                    android:id="@+id/authenticate_number"
+                    style="@style/register_input_component"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="5"
+                    android:background="@drawable/box_shape_fill" />
+
+
+            </LinearLayout>
 
         </LinearLayout>
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -124,7 +99,7 @@
         android:id="@+id/register_sign_up_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="다음"
+        android:text="회원가입"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
