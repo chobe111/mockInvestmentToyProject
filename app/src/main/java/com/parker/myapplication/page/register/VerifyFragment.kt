@@ -149,13 +149,11 @@ class VerifyFragment : AuthenticationBaseFragment(), View.OnClickListener {
         firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(context, "올바른 코드입니다.", Toast.LENGTH_SHORT)
                     val user = task.result?.user
                     createAccount(userInfo.email, userInfo.password)
                 } else {
                     // Sign in failed, display a message and update the UI
                     Toast.makeText(context, "잘못된 코드입니다. 다시 입력해주세요", Toast.LENGTH_SHORT).show()
-                    Log.w(TAG, "잘못된 코드입니다. 다시 입력해주세요", task.exception)
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
                     }
                 }
@@ -198,6 +196,7 @@ class VerifyFragment : AuthenticationBaseFragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
+//      FIXME : Why this function does not work?
         when (v!!.id) {
             reqVerifyButton.id -> {
 
