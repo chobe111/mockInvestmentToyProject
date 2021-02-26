@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent,
         changeFragment(profileFragment)
     }
 
-    override fun onVerifyDone(firebaseUser: FirebaseUser) {
+    override fun onVerifyDone() {
         changeFragment(mainFragment)
     }
 }
