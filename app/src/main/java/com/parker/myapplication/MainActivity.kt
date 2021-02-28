@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent,
     private val matchMap: Map<Int, Fragment> = mapOf(
         R.id.investment_page to InvestmentFragment(),
         R.id.market_page to MarketFragment(),
-        R.id.profile_page to ProfileFragment()
+        R.id.profile_page to MainFragment()
     )
     private lateinit var binding: ActivityMainBinding
 
