@@ -1,4 +1,4 @@
-package com.parker.myapplication.page.investment
+package com.parker.myapplication.page.market
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -18,10 +18,9 @@ class MarketFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_market, container, false)
         val view = binding.root
-        // Inflate the layout for this fragment
         return view
     }
 
