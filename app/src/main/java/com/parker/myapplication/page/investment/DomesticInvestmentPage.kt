@@ -16,6 +16,7 @@ class DomesticInvestmentPage : BaseInvestmentPage() {
 
     private lateinit var binding: FragmentDomesticInvestmentPageBinding
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

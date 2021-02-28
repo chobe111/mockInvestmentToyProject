@@ -32,7 +32,7 @@
 <!--        android:label="EventDetailFragment" >-->
 <!--        <argument-->
 <!--            android:name="eventItem"-->
-<!--            app:argType="com.parker.myapplication.model.EventItem"-->
+<!--            app:argType="com.parker.myapplication.data.EventItem"-->
 <!--            app:nullable="true" />-->
 <!--    </fragment>-->
 </navigation>
