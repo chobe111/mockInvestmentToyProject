@@ -4,14 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.UserInfo
 import com.parker.myapplication.databinding.ActivityMainBinding
 import com.parker.myapplication.page.investment.InvestmentFragment
-import com.parker.myapplication.page.investment.MarketFragment
-import com.parker.myapplication.page.investment.ProfileFragment
+import com.parker.myapplication.page.market.MarketFragment
+import com.parker.myapplication.page.profile.ProfileFragment
 import com.parker.myapplication.page.main.LoginFragment
 import com.parker.myapplication.page.main.MainFragment
 import com.parker.myapplication.page.register.ExampleFragment
@@ -83,6 +81,7 @@ class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent,
         setVariables()
         setBottomNavigationBarListener()
         setContentView(view)
+        changeFragment(investmentFragment)
     }
 
     override fun onLoginButtonClick() {
