@@ -17,10 +17,8 @@ import com.parker.myapplication.databinding.FragmentInvestmentBinding
 import com.parker.myapplication.helper.adapter.FragmentSlideAdapter
 import com.parker.myapplication.helper.adapter.StockListAdapter
 
-// TODO: Rename parameter arguments, choose names that match
 
 class InvestmentFragment : Fragment() {
-    // TODO: Rename and change types of parameters
 
     private lateinit var binding: FragmentInvestmentBinding
     private lateinit var viewPager: ViewPager2
