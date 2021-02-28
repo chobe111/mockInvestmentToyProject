@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent,
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment)
             .addToBackStack(null)
             .commit()
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
