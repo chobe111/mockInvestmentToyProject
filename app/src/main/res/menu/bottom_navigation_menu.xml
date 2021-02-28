@@ -3,6 +3,6 @@
     <item
         android:id="@+id/investment_page"
         android:enabled="true"
-        android:title="주식"
+        android:title="@string/stock"
         />
 </menu>
