@@ -19,7 +19,7 @@ class DomesticInvestmentPage : Fragment() {
 
 
     private fun setListViewAdapter() {
-        listView.adapter = StockListAdapter(requireContext(), InvestmentFragment.stockList)
+        listView.adapter = StockListAdapter(requireContext(), stockList)
     }
 
     private fun setVariables() {
@@ -37,8 +37,9 @@ class DomesticInvestmentPage : Fragment() {
             false
         )
         val view = binding.root
+        setVariables()
+        setListViewAdapter()
         return view
-
     }
 
     companion object {
