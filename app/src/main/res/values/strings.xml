@@ -17,6 +17,7 @@
     <string name="stock">주식</string>
     <string name="market">시장</string>
     <string name="profile">프로필</string>
+
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
