@@ -2,7 +2,6 @@ package com.parker.myapplication.page.register
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,18 +9,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.PhoneAuthCredential
-import com.google.firebase.auth.PhoneAuthOptions
-import com.google.firebase.auth.PhoneAuthProvider
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.parker.myapplication.databinding.FragmentRegisterBinding
-import com.parker.myapplication.model.UserInfo
+import com.parker.myapplication.data.UserInfo
 import com.parker.myapplication.page.main.AuthenticationBaseFragment
 import com.parker.myapplication.viewmodel.UserInfoViewModel
-import java.util.concurrent.TimeUnit
 
 
 class RegisterFragment : AuthenticationBaseFragment(), View.OnClickListener {
