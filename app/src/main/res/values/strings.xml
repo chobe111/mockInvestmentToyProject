@@ -13,6 +13,10 @@
     <string name="female">여자</string>
     <string name="request_verify_code">인증 요청</string>
     <string name="title_activity_investment">InvestmentActivity</string>
+
+    <string name="stock">주식</string>
+    <string name="market">시장</string>
+    <string name="profile">프로필</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
