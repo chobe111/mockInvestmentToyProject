@@ -6,13 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.parker.myapplication.R
 import com.parker.myapplication.data.StockInfo
 import com.parker.myapplication.databinding.StockCardViewItemBinding
 
 class StockListAdapter(val context: Context, val stockInfo: ArrayList<StockInfo>) : BaseAdapter() {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-//      TODO: Consider View Holder
+//      TODO: Change ListView to RecyclerView
         val view: View =
             LayoutInflater.from(context).inflate(R.layout.stock_card_view_item, parent, false)
 
