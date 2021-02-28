@@ -1,27 +1,10 @@
 package com.parker.myapplication.repository
 
-import android.content.Context
-import android.util.EventLog
-import android.util.Log
-import com.parker.myapplication.model.EventItem
+import com.parker.myapplication.data.EventItem
 import org.jsoup.Jsoup
 import java.io.IOException
 
-class Repo {
-
-    companion object {
-        var instance: Repo? = null
-        lateinit var mContext: Context
-    }
-
-    fun getInstance(context: Context): Repo {
-        mContext = context
-        if(instance == null)
-            instance = Repo()
-
-        return instance!!
-    }
-
+object Repo {
     fun getEvents(): MutableList<EventItem>{
         val dataList : MutableList<EventItem> = mutableListOf<EventItem>()
         try{
