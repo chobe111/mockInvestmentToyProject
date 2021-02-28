@@ -27,13 +27,13 @@
                app to run.
         -->
 
-        <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait">
+<!--        <activity-->
+<!--            android:name=".MainActivity"-->
+<!--            android:screenOrientation="portrait">-->
 
-        </activity>
+<!--        </activity>-->
 
-        <activity android:name=".TestActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

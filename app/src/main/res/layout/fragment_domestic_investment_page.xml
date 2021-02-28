@@ -12,7 +12,7 @@
         tools:context=".page.investment.DomesticInvestmentPage">
 
 
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/stock_list_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

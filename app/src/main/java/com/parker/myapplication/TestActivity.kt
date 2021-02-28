@@ -28,7 +28,7 @@ class TestActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.navView.setupWithNavController(navController)
 
-        viewModel.init(this)
+//        viewModel.init(this)
         viewModel.fetchData().observe(this, Observer {
             Log.d("fetchData", "$it")
         })

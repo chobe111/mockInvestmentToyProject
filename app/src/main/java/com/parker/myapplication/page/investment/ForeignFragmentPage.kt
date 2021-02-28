@@ -21,8 +21,8 @@ class ForeignFragmentPage : BaseInvestmentPage() {
     ): View {
         binding = FragmentForeignPageBinding.inflate(inflater, container, false)
         val view = binding.root
-        setListView(binding.stockListView)
-        setListViewAdapter(stockList)
+//        setListView(binding.stockListView)
+//        setListViewAdapter(stockList)
         return view
     }
 

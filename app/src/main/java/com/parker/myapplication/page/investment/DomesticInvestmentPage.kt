@@ -7,15 +7,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import com.parker.myapplication.R
 import com.parker.myapplication.data.StockInfo
 import com.parker.myapplication.databinding.FragmentDomesticInvestmentPageBinding
 import com.parker.myapplication.helper.adapter.StockListAdapter
+import com.parker.myapplication.viewmodel.StockViewModel
 
 class DomesticInvestmentPage : BaseInvestmentPage() {
 
     private lateinit var binding: FragmentDomesticInvestmentPageBinding
+    private val stockViewModel: StockViewModel by activityViewModels()
 
+    private fun observeData(){
+        stockViewModel.fetchData().observe(viewLifecycleOwner, Observer { stockInfoList ->
+            setListView(binding.stockListView)
+            setListViewAdapter(stockInfoList as ArrayList<StockInfo>)
+        })
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,30 +38,30 @@ class DomesticInvestmentPage : BaseInvestmentPage() {
             false
         )
         val view = binding.root
-        setListView(binding.stockListView)
-        setListViewAdapter(stockList)
+        observeData()
         return view
+
     }
 
-    companion object {
-        val stockList: ArrayList<StockInfo> = arrayListOf(
-            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-            StockInfo("삼성전자", "288,000", "2800", "-1.78")
-        )
-    }
+//    companion object {
+//        val stockList: ArrayList<StockInfo> = arrayListOf(
+//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
+//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
+//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
+//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
+//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
+//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
+//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
+//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
+//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
+//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
+//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
+//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
+//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
+//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
+//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
+//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
+//            StockInfo("삼성전자", "288,000", "2800", "-1.78")
+//        )
+//    }
 }

@@ -1,12 +1,13 @@
 package com.parker.myapplication.repository
 
 import com.parker.myapplication.data.EventItem
+import com.parker.myapplication.data.StockInfo
 import org.jsoup.Jsoup
 import java.io.IOException
 
 object Repo {
-    fun getEvents(): MutableList<EventItem>{
-        val dataList : MutableList<EventItem> = mutableListOf<EventItem>()
+    fun getEvents(): MutableList<StockInfo>{
+        val dataList : MutableList<StockInfo> = mutableListOf()
         try{
             val url = "https://finance.naver.com/sise/sise_market_sum.nhn?&page=1"
             val doc = Jsoup.connect(url).get()
@@ -35,7 +36,7 @@ object Repo {
                         }
                     }
                 }
-                dataList.add(EventItem(tdLen ,name, price, priceGap, gap))
+                dataList.add(StockInfo(name, price, priceGap, gap))
             }
         } catch (e: IOException){
             e.printStackTrace()

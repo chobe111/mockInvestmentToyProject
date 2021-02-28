@@ -10,6 +10,7 @@ import com.parker.myapplication.data.EventItem
 class EventAdapter(private val context: Context): RecyclerView.Adapter<EventAdapter.ViewHolder>() {
 
     private var items = mutableListOf<EventItem>()
+
     fun setListData(data: MutableList<EventItem>){
         items = data
         notifyDataSetChanged()
