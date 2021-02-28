@@ -1,13 +1,11 @@
-package com.parker.myapplication.adapters
+package com.parker.myapplication.helper.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.parker.myapplication.BR
 import com.parker.myapplication.databinding.EventItemBinding
-import com.parker.myapplication.model.EventItem
-import com.squareup.picasso.Picasso
+import com.parker.myapplication.data.EventItem
 
 class EventAdapter(private val context: Context): RecyclerView.Adapter<EventAdapter.ViewHolder>() {
 
@@ -17,7 +15,7 @@ class EventAdapter(private val context: Context): RecyclerView.Adapter<EventAdap
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = EventItemBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
@@ -27,12 +25,12 @@ class EventAdapter(private val context: Context): RecyclerView.Adapter<EventAdap
         return items.size
     }
 
-    override fun onBindViewHolder(holder: EventAdapter.ViewHolder, position: Int) = holder.bind(items[position])
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(items[position])
 
     inner class ViewHolder(val binding: EventItemBinding): RecyclerView.ViewHolder(binding.root){
 
-        fun bind(item:EventItem) = with(itemView){
-            binding.setVariable(BR.item, item)
+        fun bind(item: EventItem) = with(itemView){
+//            binding.setVariable(BR.item, item)
             binding.executePendingBindings()
 //            Picasso.get().load(item.image).into(binding.imageView)
         }

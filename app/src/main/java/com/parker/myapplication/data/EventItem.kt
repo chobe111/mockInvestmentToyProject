@@ -1,4 +1,4 @@
-package com.parker.myapplication.model
+package com.parker.myapplication.data
 
 data class EventItem(
     var id: Int = 0,
