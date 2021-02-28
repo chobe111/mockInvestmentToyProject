@@ -22,6 +22,8 @@ class InvestmentFragment : Fragment() {
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_investment, container, false)
         val view = binding.root
+
+        
         return view
 
     }

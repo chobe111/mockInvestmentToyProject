@@ -3,6 +3,23 @@
     <item
         android:id="@+id/investment_page"
         android:enabled="true"
+        android:icon="@drawable/ic_investment"
         android:title="@string/stock"
         />
+
+    <item
+        android:id="@+id/market_page"
+        android:enabled="true"
+        android:icon="@drawable/ic_market"
+        android:title="@string/stock"
+        />
+
+    <item
+        android:id="@+id/profile_page"
+        android:enabled="true"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/stock"
+        />
+
+
 </menu>
