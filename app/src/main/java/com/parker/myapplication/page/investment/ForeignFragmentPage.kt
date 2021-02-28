@@ -6,16 +6,45 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.parker.myapplication.R
+import com.parker.myapplication.data.StockInfo
+import com.parker.myapplication.databinding.FragmentForeignPageBinding
 
 // TODO: Rename parameter arguments, choose names that match
 
-class ForeignFragmentPage : Fragment() {
+class ForeignFragmentPage : BaseInvestmentPage() {
+
+    private lateinit var binding: FragmentForeignPageBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_foreign_page, container, false)
+    ): View {
+        binding = FragmentForeignPageBinding.inflate(inflater, container, false)
+        val view = binding.root
+        setListView(binding.stockListView)
+        setListViewAdapter(stockList)
+        return view
     }
 
+    companion object {
+        val stockList: ArrayList<StockInfo> = arrayListOf(
+            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+            StockInfo("TSMC", "288,000", "2800", "-1.78")
+        )
+    }
 }

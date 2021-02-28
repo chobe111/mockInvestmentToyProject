@@ -44,18 +44,16 @@ class InvestmentFragment : Fragment() {
         val view = binding.root
         setViewPager()
         setTabLayout()
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             if (position == 0) {
                 tab.setText("국내")
-            }else{
+            } else {
                 tab.setText("해외")
             }
-//            tab.setText("asdf")
         }.attach()
-        return view
     }
-//
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//
-//    }
 }

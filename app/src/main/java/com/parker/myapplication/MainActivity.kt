@@ -23,6 +23,11 @@ class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent,
 
 //    private lateinit var binding: ActivityMainBinding
 
+    private val matchMap: Map<Int, Fragment> = mapOf(
+        R.id.investment_page to InvestmentFragment(),
+        R.id.market_page to MarketFragment(),
+        R.id.profile_page to ProfileFragment()
+    )
     private lateinit var binding: ActivityMainBinding
 
     private val mainFragment by lazy { MainFragment() }
@@ -42,24 +47,8 @@ class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent,
 
     private fun setBottomNavigationBarListener() {
         bottomNavigationView.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.investment_page -> {
-                    changeFragment(investmentFragment)
-                    true
-                }
-
-                R.id.market_page -> {
-                    changeFragment(marketFragment)
-                    true
-                }
-
-                R.id.profile_page -> {
-                    changeFragment(profileFragment)
-                    true
-                }
-
-                else -> false
-            }
+            changeFragment(matchMap[it.itemId]!!)
+            true
         }
     }
 

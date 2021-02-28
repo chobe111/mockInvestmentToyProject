@@ -12,19 +12,9 @@ import com.parker.myapplication.data.StockInfo
 import com.parker.myapplication.databinding.FragmentDomesticInvestmentPageBinding
 import com.parker.myapplication.helper.adapter.StockListAdapter
 
-class DomesticInvestmentPage : Fragment() {
+class DomesticInvestmentPage : BaseInvestmentPage() {
 
     private lateinit var binding: FragmentDomesticInvestmentPageBinding
-    private lateinit var listView: ListView
-
-
-    private fun setListViewAdapter() {
-        listView.adapter = StockListAdapter(requireContext(), stockList)
-    }
-
-    private fun setVariables() {
-        listView = binding.stockListView
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,8 +27,8 @@ class DomesticInvestmentPage : Fragment() {
             false
         )
         val view = binding.root
-        setVariables()
-        setListViewAdapter()
+        setListView(binding.stockListView)
+        setListViewAdapter(stockList)
         return view
     }
 
