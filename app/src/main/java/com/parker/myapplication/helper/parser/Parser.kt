@@ -1,11 +1,10 @@
-package com.parker.myapplication.repository
+package com.parker.myapplication.helper.parser
 
-import com.parker.myapplication.data.EventItem
 import com.parker.myapplication.data.StockInfo
 import org.jsoup.Jsoup
 import java.io.IOException
 
-object Repo {
+object Parser {
     fun getEvents(): MutableList<StockInfo>{
         val dataList : MutableList<StockInfo> = mutableListOf()
         try{
