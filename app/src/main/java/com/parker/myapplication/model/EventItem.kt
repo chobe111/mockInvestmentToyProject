@@ -5,7 +5,7 @@ data class EventItem(
     var title: String = "",
     var price: String = "",
     var date: String = "",
-    var desc: String = ""
+    var desc: String = "",
 //    var image: String = "",
-//    var url: String = ""
+    var url: String = ""
 )
