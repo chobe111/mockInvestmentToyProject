@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_investment">
+
+    <fragment
+        android:id="@+id/navigation_investment"
+        android:name="com.parker.myapplication.page.investment.InvestmentFragment"
+        android:label="@string/title_activity_investment"
+        tools:layout="@layout/fragment_investment" >
+<!--        <action-->
+<!--            android:id="@+id/action_navigation_home_to_eventDetailFragment3"-->
+<!--            app:destination="@id/eventDetailFragment3" />-->
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_market"
+        android:name="com.parker.myapplication.page.investment.ProfileFragment"
+        android:label="MarketActivity"
+        tools:layout="@layout/fragment_market" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.parker.myapplication."
+        android:label="ProfileActivity"
+        tools:layout="@layout/fragment_profile" />
+<!--    <fragment-->
+<!--        android:id="@+id/eventDetailFragment3"-->
+<!--        android:name="com.parker.myapplication.page.investment.EventDetailFragment"-->
+<!--        android:label="EventDetailFragment" >-->
+<!--        <argument-->
+<!--            android:name="eventItem"-->
+<!--            app:argType="com.parker.myapplication.data.EventItem"-->
+<!--            app:nullable="true" />-->
+<!--    </fragment>-->
+</navigation>
