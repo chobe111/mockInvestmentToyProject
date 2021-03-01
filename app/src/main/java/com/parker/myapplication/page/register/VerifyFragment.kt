@@ -136,7 +136,7 @@ public class VerifyFragment : Fragment() {
         verificationCallbacks()
 
         val options = PhoneAuthOptions.newBuilder(auth)
-            .setPhoneNumber(phoneNumber.toString())       // Phone number to verify
+            .setPhoneNumber(phoneNumber.text.toString())       // Phone number to verify
             .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
             .setActivity(this.requireActivity())                 // Activity (for callback binding)
             .setCallbacks(callbacks)          // OnVerificationStateChangedCallbacks
