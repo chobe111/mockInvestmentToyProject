@@ -27,7 +27,7 @@ class FaceBookRegisterFragment : Fragment() {
 
     private val callback = object : FacebookCallback<LoginResult> {
         override fun onSuccess(result: LoginResult?) {
-            Log.d(TAG, "onSuccess: ${result}")
+//           TODO: Get User Token
         }
 
         override fun onCancel() {
