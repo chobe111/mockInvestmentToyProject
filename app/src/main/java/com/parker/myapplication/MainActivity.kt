@@ -1,9 +1,12 @@
 package com.parker.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import com.facebook.FacebookActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseUser
 import com.parker.myapplication.databinding.ActivityMainBinding
@@ -12,21 +15,25 @@ import com.parker.myapplication.page.market.MarketFragment
 import com.parker.myapplication.page.profile.ProfileFragment
 import com.parker.myapplication.page.main.LoginFragment
 import com.parker.myapplication.page.main.MainFragment
+import com.parker.myapplication.page.oauth2.FaceBookRegisterFragment
 import com.parker.myapplication.page.register.ExampleFragment
 import com.parker.myapplication.page.register.RegisterFragment
 import com.parker.myapplication.page.register.VerifyFragment
 import com.parker.myapplication.viewmodel.UserInfoViewModel
 
-class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent,
+class MainActivity : FragmentActivity(), MainFragment.OnButtonClickEvent,
     RegisterFragment.OnRegisterDoneListener, LoginFragment.EventListener,
     VerifyFragment.EventListener {
 
 //    private lateinit var binding: ActivityMainBinding
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+    }
     private val matchMap: Map<Int, Fragment> = mapOf(
         R.id.investment_page to InvestmentFragment(),
         R.id.market_page to MarketFragment(),
-        R.id.profile_page to MainFragment()
+        R.id.profile_page to FaceBookRegisterFragment()
     )
     private lateinit var binding: ActivityMainBinding
 
