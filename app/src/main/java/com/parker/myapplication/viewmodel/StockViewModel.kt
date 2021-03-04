@@ -11,7 +11,6 @@ import kotlinx.coroutines.launch
 class StockViewModel: ViewModel() {
     var items: MutableLiveData<MutableList<StockInfo>> = MutableLiveData()
 
-
     fun fetchData(): MutableLiveData<MutableList<StockInfo>>{
         viewModelScope.launch(IO) {
             items.postValue(Parser.getEvents())
