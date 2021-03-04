@@ -25,8 +25,6 @@ class MainActivity : FragmentActivity(), MainFragment.OnButtonClickEvent,
     RegisterFragment.OnRegisterDoneListener, LoginFragment.EventListener,
     VerifyFragment.EventListener {
 
-//    private lateinit var binding: ActivityMainBinding
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
     }
