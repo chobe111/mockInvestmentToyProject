@@ -11,4 +11,6 @@
         android:layout_height="match_parent"
         android:text="본 투자 화면입니다." />
 
+
+
 </FrameLayout>

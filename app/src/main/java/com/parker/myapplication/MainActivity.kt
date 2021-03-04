@@ -50,6 +50,7 @@ class MainActivity : FragmentActivity(), MainFragment.OnButtonClickEvent,
     private val marketFragment by lazy { MarketFragment() }
 
 
+
     private lateinit var bottomNavigationView: BottomNavigationView
 
     private fun setBottomNavigationBarListener() {
@@ -87,6 +88,7 @@ class MainActivity : FragmentActivity(), MainFragment.OnButtonClickEvent,
     override fun onRegisterButtonClick() {
         changeFragment(registerFragment)
     }
+
 
     override fun onRegisterDone() {
         changeFragment(verifyFragment)
