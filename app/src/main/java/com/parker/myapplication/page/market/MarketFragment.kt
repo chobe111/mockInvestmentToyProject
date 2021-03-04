@@ -32,8 +32,10 @@ class MarketFragment : Fragment() {
         GlobalScope.launch {
             val datalist: MutableList<StockInfo> = arrayListOf()
 
+            val url = "https://finance.naver.com/sise/sise_market_sum.nhn?&page=1"
             val doc: Document =
-                Jsoup.connect("https://finance.naver.com/sise/sise_market_sum.nhn?&page=1").get()
+                Jsoup.connect(url)
+                    .get()
             val wholeStockData = doc.select("table[class=type_2]").select("tbody").select("tr")
             Log.d(TAG, "onCreateView: asdfadfadf")
             for (data in wholeStockData) {
@@ -45,7 +47,7 @@ class MarketFragment : Fragment() {
                 var priceGap = ""
                 var gap = ""
                 tdList.forEachIndexed { index, element ->
-                    when(index){
+                    when (index) {
                         1 -> {
                             name = element.select("a").text()
                         }
@@ -63,6 +65,7 @@ class MarketFragment : Fragment() {
                 datalist.add(StockInfo(name, price, priceGap, gap))
             }
         }
+
 
 
 

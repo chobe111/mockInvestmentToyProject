@@ -5,46 +5,64 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ListView
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import com.parker.myapplication.R
 import com.parker.myapplication.data.StockInfo
+import com.parker.myapplication.databinding.FragmentDomesticInvestmentPageBinding
 import com.parker.myapplication.databinding.FragmentForeignPageBinding
-
-// TODO: Rename parameter arguments, choose names that match
+import com.parker.myapplication.helper.adapter.StockListAdapter
+import com.parker.myapplication.viewmodel.StockViewModel
+import com.parker.myapplication.viewmodel.StockViewModel_foreign
 
 class ForeignFragmentPage : BaseInvestmentPage() {
 
     private lateinit var binding: FragmentForeignPageBinding
+    private val stockViewModel: StockViewModel_foreign by activityViewModels()
+
+    private fun observeData(){
+        stockViewModel.fetchData().observe(viewLifecycleOwner, Observer { stockInfoList ->
+            setListView(binding.stockListView)
+            setListViewAdapter(stockInfoList as ArrayList<StockInfo>)
+        })
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentForeignPageBinding.inflate(inflater, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_foreign_page,
+            container,
+            false
+        )
         val view = binding.root
-//        setListView(binding.stockListView)
-//        setListViewAdapter(stockList)
+        observeData()
         return view
     }
 
-    companion object {
-        val stockList: ArrayList<StockInfo> = arrayListOf(
-            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-            StockInfo("TSMC", "288,000", "2800", "-1.78")
-        )
-    }
+//    companion object {
+//        val stockList: ArrayList<StockInfo> = arrayListOf(
+//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
+//            StockInfo("TSMC", "288,000", "2800", "-1.78")
+//        )
+//    }
 }
