@@ -12,9 +12,7 @@ import com.parker.myapplication.page.market.MarketFragment
 import com.parker.myapplication.page.profile.ProfileFragment
 import com.parker.myapplication.page.main.LoginFragment
 import com.parker.myapplication.page.main.MainFragment
-import com.parker.myapplication.page.register.ExampleFragment
-import com.parker.myapplication.page.register.RegisterFragment
-import com.parker.myapplication.page.register.VerifyFragment
+import com.parker.myapplication.page.register.*
 import com.parker.myapplication.viewmodel.UserInfoViewModel
 
 class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent,
@@ -41,6 +39,7 @@ class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent,
 
     private val investmentFragment by lazy { InvestmentFragment() }
     private val marketFragment by lazy { MarketFragment() }
+
 
 
     private lateinit var bottomNavigationView: BottomNavigationView
@@ -80,6 +79,7 @@ class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickEvent,
     override fun onRegisterButtonClick() {
         changeFragment(registerFragment)
     }
+
 
     override fun onRegisterDone() {
         changeFragment(verifyFragment)
