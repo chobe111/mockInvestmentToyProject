@@ -44,25 +44,4 @@ class ForeignFragmentPage : BaseInvestmentPage() {
         return view
     }
 
-//    companion object {
-//        val stockList: ArrayList<StockInfo> = arrayListOf(
-//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-//            StockInfo("TSMC", "288,000", "2800", "-1.78"),
-//            StockInfo("TSMC", "288,000", "2800", "-1.78")
-//        )
-//    }
 }

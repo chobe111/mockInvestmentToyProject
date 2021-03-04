@@ -4,7 +4,7 @@ import com.parker.myapplication.data.StockInfo
 import org.jsoup.Jsoup
 import java.io.IOException
 
-object ForeignParser: BaseParser {
+object ForeignParser: BaseParser<StockInfo> {
     override fun getEvents(): MutableList<StockInfo> {
         val dataList: MutableList<StockInfo> = mutableListOf()
         try {

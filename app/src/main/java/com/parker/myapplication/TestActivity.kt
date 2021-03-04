@@ -29,8 +29,8 @@ class TestActivity : AppCompatActivity() {
         binding.navView.setupWithNavController(navController)
 
 //        viewModel.init(this)
-        viewModel.fetchData().observe(this, Observer {
-            Log.d("fetchData", "$it")
-        })
+//        viewModel.fetchData().observe(this, Observer {
+//            Log.d("fetchData", "$it")
+//        })
     }
 }
