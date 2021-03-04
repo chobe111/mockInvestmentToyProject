@@ -4,8 +4,8 @@ import com.parker.myapplication.data.StockInfo
 import org.jsoup.Jsoup
 import java.io.IOException
 
-object Parser_foreign {
-    fun getEvents(): MutableList<StockInfo> {
+object ForeignParser: BaseParser {
+    override fun getEvents(): MutableList<StockInfo> {
         val dataList: MutableList<StockInfo> = mutableListOf()
         try {
             val url = "https://kr.investing.com/equities/most-active-stocks?country=usa"

@@ -14,16 +14,16 @@ import com.parker.myapplication.data.StockInfo
 import com.parker.myapplication.databinding.FragmentDomesticInvestmentPageBinding
 import com.parker.myapplication.databinding.FragmentForeignPageBinding
 import com.parker.myapplication.helper.adapter.StockListAdapter
+import com.parker.myapplication.helper.parser.ForeignParser
 import com.parker.myapplication.viewmodel.StockViewModel
-import com.parker.myapplication.viewmodel.StockViewModel_foreign
 
 class ForeignFragmentPage : BaseInvestmentPage() {
 
     private lateinit var binding: FragmentForeignPageBinding
-    private val stockViewModel: StockViewModel_foreign by activityViewModels()
+    private val stockViewModel: StockViewModel by activityViewModels()
 
     private fun observeData(){
-        stockViewModel.fetchData().observe(viewLifecycleOwner, Observer { stockInfoList ->
+        stockViewModel.fetchData(ForeignParser).observe(viewLifecycleOwner, Observer { stockInfoList ->
             setListView(binding.stockListView)
             setListViewAdapter(stockInfoList as ArrayList<StockInfo>)
         })

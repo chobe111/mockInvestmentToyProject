@@ -29,46 +29,6 @@ class MarketFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_market, container, false)
         val view = binding.root
 
-        GlobalScope.launch {
-            val datalist: MutableList<StockInfo> = arrayListOf()
-
-            val url = "https://finance.naver.com/sise/sise_market_sum.nhn?&page=1"
-            val doc: Document =
-                Jsoup.connect(url)
-                    .get()
-            val wholeStockData = doc.select("table[class=type_2]").select("tbody").select("tr")
-            Log.d(TAG, "onCreateView: asdfadfadf")
-            for (data in wholeStockData) {
-                val tdLen = data.select("td").size
-                if (tdLen <= 5) continue
-                val tdList = data.select("td")
-                var name = ""
-                var price = ""
-                var priceGap = ""
-                var gap = ""
-                tdList.forEachIndexed { index, element ->
-                    when (index) {
-                        1 -> {
-                            name = element.select("a").text()
-                        }
-                        2 -> {
-                            price = element.text()
-                        }
-                        3 -> {
-                            priceGap = element.text()
-                        }
-                        4 -> {
-                            gap = element.text()
-                        }
-                    }
-                }
-                datalist.add(StockInfo(name, price, priceGap, gap))
-            }
-        }
-
-
-
-
         return view
     }
 }
