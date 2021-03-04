@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#000000" />
+        </shape>
+
+    </item>
+<!--shape는 형태, solid는 면의 속성(내부)
+ corner는 모서리의 속성, stroke는 테두리 선의 속성
+ 위처럼 shape 속성 안에 다른 속성들을 들여쓰기해서 넣어줌.
+ 출처: http://becreativelab.com/archives/156082
+
+- <shape /> : 형태 모형을 정의한다는 루트 요소이다. 속성은 'android:shape'이며 값은  rectangle, oval, line, ring 이다.
+- <corners /> : 가장자리를 둥글게 처리하는 요소이다. <shape />요소의 속성이 'android:shape="rectangle" ' 일때만 유효하다.
+- 'android:radius' : 사각형의 테두리 곡선을 나타낸다.
+    'android:topLeftRadius',  'android:topRightRadius', 'android:bottomLeftRadius', 'android:bottomRightRadius' 각각 사용 할수 없다. UnsupportedOperationException 예외가 발생한다.
+- <gradient /> : 색상의 기울기를 처리하는 요소이다.
+- 'android:type' : 색상 기울기 패터을 지정한다.
+- linear : 선형으로 색상바르기. (Default)
+- radial : 방사형으로 색상바르기. 시작 컬러값과 중심 컬러값이 동일하다.
+- sweep: 쓸어내기식 색상바르기.
+- 'android:angle' : 색상의 기울기 각도로 정수로 환산한다. 값은 45의 배수이야하며, 디폴트 값은 0이다.android:type="linear" '의 경우에만 적용된다.
+    0이면 좌측에서 우측으로 색상의 기울기가 지정된다.
+    90이면 아래에서 위쪽으로 색상의 기울기가 지정된다.
+- 'android:centerX' : X축 중심의 상대위치를 의미한다. 사각형의 X축의 중심은 0.5로 환산하고 0 ~ 1.0의 실수값을 갖게 된다. 따라서 0에 가까운 값을 갖는다면 사각형 왼쪽면으로 중심이 이동하고 1에 가까우면 사각형의 오른쪽으로 중심이 이동한다. 만약 ' android:type="linear" '면 적용 되지 않는다.
+- 'android:centerY' : Y축 중심의 상대위치를 의미한다. 이하 속성은 'android:centerX'와 동일하다.
+- 'android:startColor' : 색상 기울기의 시작 컬러값을 나타낸다.
+- 'android:endColor' : 색상 기울기의 끝 컬러값을 나타낸다.
+- 'android:centerColor' : 'android:startColor' 값과 'android:endColor' 값 사이의 중간 컬러값을 나타낸다.
+- 'android:gradientRadius' : 색상 기울기의 반지름 값으로 실수를 계산한다. ' android:type="radial" '의 경우에만 적용된다.
+- <padding /> : 패딩값을 지정한다. 형태 모형을 지정하는게 아니고 <shape /> 요소 내 사용하는 뷰의 패팅값으로 사용한다. 단위는 Dimension 이다.
+- <size /> : 형태 모형의 크기를 정한다. 형태 모형의 크기는 결과적으로 뷰의 크기이다.
+- <solid /> : 단색으로 '채울 때' 처리하는 요소이다.
+- <stroke /> : 테두리나 선을 그릴 때 사용하는 요소이다. <shape />요소의 속성이 'android:shape="line" ' 일때 반드시 설정해 줘야 된다. 설정하지 않으면 NullPointerException 예외가 발생한다.
+- 'android:dashGap' : 점선의 간격을 나타낸다. 간격은 치수로 표기한다.
+- 'android:dashWidth' : 점선의 두께값을 나타낸다.
+출처: http://wawoops67.blogspot.com/2013/01/android-shape-drawable.html-->
+
+    <item android:top = "1dp"
+        android:right= "1dp"
+        android:left="1dp"
+        android:bottom="1dp">
+<!--이 부분은 테두리의 굵기를 의미.-->
+
+        <shape android:shape="rectangle">
+            <solid android:color="#ffffff" />
+        </shape>
+<!--이 부분은 테두리 내부 속성을 다룸.-->
+    </item>
+
+</layer-list>
+<!--layer-list는 여러 개의 이미지를 저장하는 리스트입니다.
+ 요소는 item으로 구분하며 이미지를 갖고 있어야 합니다.
+ 출처: https://shacoding.com/2019/08/26/android-%EA%B5%AC%EA%B8%80-%EB%B0%A9%EC%8B%9D%EC%9D%98-%EB%A1%9C%EB%94%A9-%ED%99%94%EB%A9%B4%EC%9D%84-%EB%A7%8C%EB%93%A4%EC%96%B4-%EB%B3%B4%EC%9E%90/-->

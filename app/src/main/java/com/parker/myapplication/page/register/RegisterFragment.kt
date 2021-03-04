@@ -1,4 +1,4 @@
-package com.parker.myapplication.page
+package com.parker.myapplication.page.register
 
 import android.content.Context
 import android.os.Bundle
@@ -11,12 +11,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.parker.myapplication.R
 import com.parker.myapplication.databinding.FragmentRegisterBinding
-import java.security.AuthProvider
+import com.parker.myapplication.model.UserInfo
+import com.parker.myapplication.viewmodel.UserInfoViewModel
+
 // 2/9 밑에 코드는 파이어 베이스 회원가입 코드인 거 같은데 못해와서 명기 코드 보고 침.
     class RegisterFragment : Fragment(), View.OnClickListener {
 
@@ -31,6 +33,8 @@ import java.security.AuthProvider
         private lateinit var progressBar: ProgressBar
 
         private var listener: OnRegisterDoneListener? = null
+
+        private val userInfoViewModel: UserInfoViewModel by activityViewModels()
 
         interface OnRegisterDoneListener {
             fun onRegisterDone()
@@ -99,17 +103,33 @@ import java.security.AuthProvider
         }
 
         override fun onAttach(context: Context) {
-            super.onAttach(context)
+            super.onAttach(context) // context는 MainActivity
             listener = context as OnRegisterDoneListener
         }
 
+        private fun checkAllAreaFilled(): Boolean {
+            return !(emailView.text.equals("") || passwordView.text.equals("") || nameView.text.equals(""))
+        }
+
+        private fun getUserInfo(): UserInfo {
+            return UserInfo(
+                binding.registerName.text.toString(),
+                binding.registerEmail.text.toString(),
+                binding.registerPassword.text.toString()
+        )
+    }
 
         override fun onClick(v: View?) {
             // TODO("Not yet implemented")
             when (v!!.id) {
                 signUpButton.id -> {
+                    if (checkAllAreaFilled()) {
+                        userInfoViewModel.setInfo(getUserInfo())
+                        listener!!.onRegisterDone()
+                    } else {
                     createAccount(emailView.text.toString(), passwordView.text.toString())
                 }
             }
         }
     }
+}

@@ -1,4 +1,4 @@
-package com.parker.myapplication.page
+package com.parker.myapplication.page.main
 
 import android.content.Context
 import android.os.Bundle
@@ -6,9 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.constraintlayout.widget.ConstraintLayout
-import com.parker.myapplication.R
 import com.parker.myapplication.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {

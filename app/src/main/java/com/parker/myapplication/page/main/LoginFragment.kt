@@ -1,4 +1,4 @@
-package com.parker.myapplication.page
+package com.parker.myapplication.page.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
