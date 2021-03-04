@@ -27,15 +27,7 @@ import com.parker.myapplication.databinding.FragmentMainBinding
 import com.parker.myapplication.helper.TAG
 
 // TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [GoogleLoginFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class GoogleLoginFragment : Fragment() {
 
     private lateinit var binding: FragmentGoogleLoginBinding
@@ -48,6 +40,10 @@ class GoogleLoginFragment : Fragment() {
 
     private lateinit var mContext: Context
 
+    val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        .requestIdToken(getString(R.string.default_web_client_id))
+        .requestEmail()
+        .build()
 
     private fun setVariables() {
         googleLoginFragmentEmail = binding.googleLoginFragmentEmail
@@ -74,7 +70,7 @@ class GoogleLoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentGoogleLoginBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -131,4 +127,9 @@ class GoogleLoginFragment : Fragment() {
                 // ...
             }
     }
+
+    companion object {
+        val RC_SIGN_IN = 1234
+    }
+
 }
