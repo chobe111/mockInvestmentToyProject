@@ -9,6 +9,7 @@
     <uses-feature android:name="android.hardware.type.watch" />
 
     <application
+        android:name=".GlobalApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -58,10 +59,22 @@
         <!--        </activity>-->
 
         <activity android:name=".MainActivity">
+        </activity>
+
+        <activity android:name=".page.oauth2.KakaoRegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="oauth"
+                    android:scheme="kakao197fb092ea746d1549c58a8298f9b09d" />
             </intent-filter>
         </activity>
     </application>
