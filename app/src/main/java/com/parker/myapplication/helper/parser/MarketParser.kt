@@ -8,12 +8,12 @@ object MarketParser : BaseParser<StockInfo> {
     override fun getEvents(): MutableList<StockInfo> {
         val dataList: MutableList<StockInfo> = mutableListOf()
         try {
-            val url = "https://kr.investing.com/equities/most-active-stocks?country=usa"
+            val url = "https://kr.investing.com/indices/south-korea-indices"
             val doc = Jsoup.connect(url).get()
-            val wholeStockData = doc.select("table[class=genTbl closedTbl elpTbl elp25 crossRatesTbl]").select("tbody").select("tr")
+            val wholeStockData = doc.select("table").select("#cr1").select("tbody tr")
             for (data in wholeStockData) {
                 val tdLen = data.select("td").size
-                if (tdLen <= 5) continue
+                if (tdLen <= 3) continue
                 val tdList = data.select("td")
                 var name = ""
                 var price = ""

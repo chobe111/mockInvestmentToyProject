@@ -11,12 +11,23 @@ import com.parker.myapplication.helper.parser.MarketParser
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 
-class StockViewModel: ViewModel() {
-    var items: MutableLiveData<MutableList<StockInfo>> = MutableLiveData()
-    fun fetchData(parser: BaseParser<StockInfo>): MutableLiveData<MutableList<StockInfo>>{
+class StockViewModel : ViewModel() {
+    var marketitems: MutableLiveData<MutableList<StockInfo>> = MutableLiveData()
+    var foreignItems: MutableLiveData<MutableList<StockInfo>> = MutableLiveData()
+    var domesticItems: MutableLiveData<MutableList<StockInfo>> = MutableLiveData()
+    fun fetchData(parser: BaseParser<StockInfo>): MutableLiveData<MutableList<StockInfo>> {
+//      Async
         viewModelScope.launch(IO) {
-            items.postValue(parser.getEvents())
+            when (parser) {
+                DomesticParser -> domesticItems.postValue(parser.getEvents())
+                ForeignParser -> foreignItems.postValue(parser.getEvents())
+                MarketParser -> marketitems.postValue(parser.getEvents())
+            }
         }
-        return items
+        return when (parser) {
+            DomesticParser -> domesticItems
+            ForeignParser -> foreignItems
+            else -> marketitems
+        }
     }
 }
