@@ -9,6 +9,8 @@ import androidx.fragment.app.FragmentActivity
 import com.facebook.FacebookActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.parker.myapplication.databinding.ActivityMainBinding
 import com.parker.myapplication.page.investment.InvestmentFragment
 import com.parker.myapplication.page.market.MarketFragment
@@ -16,23 +18,21 @@ import com.parker.myapplication.page.profile.ProfileFragment
 import com.parker.myapplication.page.main.LoginFragment
 import com.parker.myapplication.page.main.MainFragment
 import com.parker.myapplication.page.oauth2.FaceBookRegisterFragment
+import com.parker.myapplication.page.oauth2.GoogleLoginFragment
+import com.parker.myapplication.page.profile.SignInCheckFragment
 import com.parker.myapplication.page.register.ExampleFragment
 import com.parker.myapplication.page.register.RegisterFragment
 import com.parker.myapplication.page.register.VerifyFragment
 import com.parker.myapplication.viewmodel.UserInfoViewModel
 
 class MainActivity : FragmentActivity(), MainFragment.OnButtonClickEvent,
-    RegisterFragment.OnRegisterDoneListener, LoginFragment.EventListener,
+    RegisterFragment.OnRegisterDoneListener, LoginFragment.EventListener, SignInCheckFragment.SignInCheckListener,
     VerifyFragment.EventListener {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
     }
-    private val matchMap: Map<Int, Fragment> = mapOf(
-        R.id.investment_page to InvestmentFragment(),
-        R.id.market_page to MarketFragment(),
-        R.id.profile_page to FaceBookRegisterFragment()
-    )
+
     private lateinit var binding: ActivityMainBinding
 
     private val mainFragment by lazy { MainFragment() }
@@ -46,6 +46,14 @@ class MainActivity : FragmentActivity(), MainFragment.OnButtonClickEvent,
 
     private val investmentFragment by lazy { InvestmentFragment() }
     private val marketFragment by lazy { MarketFragment() }
+
+
+
+    var matchMap: Map<Int, Fragment> = mapOf(
+        R.id.investment_page to InvestmentFragment(),
+        R.id.market_page to MarketFragment(),
+        R.id.profile_page to SignInCheckFragment()
+    )
 
 
 
@@ -97,6 +105,14 @@ class MainActivity : FragmentActivity(), MainFragment.OnButtonClickEvent,
     }
 
     override fun onVerifyDone() {
+        changeFragment(mainFragment)
+    }
+
+    override fun signedIn() {
+        changeFragment(profileFragment)
+    }
+
+    override fun notSignedIn() {
         changeFragment(mainFragment)
     }
 }
