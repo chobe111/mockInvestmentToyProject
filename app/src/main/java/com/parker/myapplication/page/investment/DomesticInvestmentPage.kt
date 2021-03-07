@@ -13,6 +13,7 @@ import com.parker.myapplication.R
 import com.parker.myapplication.data.StockInfo
 import com.parker.myapplication.databinding.FragmentDomesticInvestmentPageBinding
 import com.parker.myapplication.helper.adapter.StockListAdapter
+import com.parker.myapplication.helper.parser.DomesticParser
 import com.parker.myapplication.viewmodel.StockViewModel
 
 class DomesticInvestmentPage : BaseInvestmentPage() {
@@ -21,7 +22,7 @@ class DomesticInvestmentPage : BaseInvestmentPage() {
     private val stockViewModel: StockViewModel by activityViewModels()
 
     private fun observeData(){
-        stockViewModel.fetchData().observe(viewLifecycleOwner, Observer { stockInfoList ->
+        stockViewModel.fetchData(DomesticParser).observe(viewLifecycleOwner, Observer { stockInfoList ->
             setListView(binding.stockListView)
             setListViewAdapter(stockInfoList as ArrayList<StockInfo>)
         })
@@ -42,26 +43,4 @@ class DomesticInvestmentPage : BaseInvestmentPage() {
         return view
 
     }
-
-//    companion object {
-//        val stockList: ArrayList<StockInfo> = arrayListOf(
-//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-//            StockInfo("삼성전자", "288,000", "2800", "-1.78"),
-//            StockInfo("삼성전자", "288,000", "2800", "-1.78")
-//        )
-//    }
 }

@@ -1,4 +1,5 @@
 package com.parker.myapplication.helper.parser
 
-class BaseParser {
+interface BaseParser<T> {
+    fun getEvents(): MutableList<T>
 }
