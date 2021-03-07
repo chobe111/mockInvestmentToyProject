@@ -16,6 +16,7 @@ import com.parker.myapplication.page.profile.ProfileFragment
 import com.parker.myapplication.page.main.LoginFragment
 import com.parker.myapplication.page.main.MainFragment
 import com.parker.myapplication.page.oauth2.FaceBookRegisterFragment
+import com.parker.myapplication.page.profile.SignedInCheckFragment
 import com.parker.myapplication.page.register.ExampleFragment
 import com.parker.myapplication.page.register.RegisterFragment
 import com.parker.myapplication.page.register.VerifyFragment
@@ -23,7 +24,7 @@ import com.parker.myapplication.viewmodel.UserInfoViewModel
 
 class MainActivity : FragmentActivity(), MainFragment.OnButtonClickEvent,
     RegisterFragment.OnRegisterDoneListener, LoginFragment.EventListener,
-    VerifyFragment.EventListener {
+    VerifyFragment.EventListener, SignedInCheckFragment.SignedInCheckListener {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -98,5 +99,13 @@ class MainActivity : FragmentActivity(), MainFragment.OnButtonClickEvent,
 
     override fun onVerifyDone() {
         changeFragment(mainFragment)
+    }
+
+    override fun signedIn() {
+        changeFragment(profileFragment)
+    }
+
+    override fun notSignedIn() {
+        changeFragment(loginFragment)
     }
 }
