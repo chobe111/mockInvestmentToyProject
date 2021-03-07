@@ -7,10 +7,27 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".page.oauth2.FaceBookRegisterFragment">
+        tools:context=".page.oauth2.FaceBookRegisterFragment"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="이름"
+            android:textSize="30dp"
+            android:gravity="center"/>
+        <ImageView
+            android:id="@+id/profileimage_url"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginVertical="30dp"/>
+
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/facebook_login_button"
@@ -21,5 +38,5 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>
